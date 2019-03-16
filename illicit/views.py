@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-
+from django.shortcuts import render
 
 def homepage(request):
-    return HttpResponse("<p>testing 1 2 3</p>")
+    return render(request,'home/index.html')
