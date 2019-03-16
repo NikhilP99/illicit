@@ -44,10 +44,10 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="{% url 'homepage' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">Blog</a>
+            <a class="nav-link" href="{% url 'blog:blog_list' %}">Blog</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="post.html">Create</a>
