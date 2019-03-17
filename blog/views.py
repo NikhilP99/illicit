@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Blog
+from .forms import Blogform
 
 
 def all_blogs(request):
@@ -16,3 +17,14 @@ def detail(request,pk):
     'details':details,
     }
     return render(request,'blog/details.html',context)
+
+
+def create_blog(request):
+    if request.method == 'POST':
+        form = Blogform(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('blog:blog_list')
+    else:
+        form = Blogform()
+        return render(request,'blog/new_blog.html',{'form':form })

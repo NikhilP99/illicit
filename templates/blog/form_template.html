@@ -1,0 +1,12 @@
+
+{% for field in form %}
+
+<div class="control-group">
+  <div class="form-group floating-label-form-group controls">
+    <label>{{ field.label_tag }}</label>
+  {{ field }}
+   <p class="help-block text-danger"></p>
+  </div>
+</div>
+
+{% endfor %}
