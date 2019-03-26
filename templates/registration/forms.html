@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+  {% block content %}
+
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/contact-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h1>Signup/Login here</h1>
+              <span class="subheading">Remember...you need to be logged in to post a blog.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>First time here? Signup and start bloggin!</p>
+          <form name="sentMessage" action="{% url 'registration:signup' %}" method='POST' id="contactForm" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <p>{{ form.errors }}</p>
+
+            <table border='0'>
+              {{ signup_form.as_table }}
+            </table>
+
+            <br>
+            <div id="success"></div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" id="sendMessageButton">Signup</button>
+            </div>
+          </form>
+
+          <div class="col-lg-5 col-md-10 mx-auto">
+            <p>Login here</p>
+            <form name="sentMessage" action="{% url 'registration:login' %}" id="contactForm" method="POST" novalidate>
+              {% csrf_token %}
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                  <label>Email Address</label>
+                  <input type="email" class="form-control" placeholder="Email Address" id="email" name='email' required data-validation-required-message="Please enter your email address.">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                  <label>password</label>
+                  <input type="text" class="form-control" placeholder="Password" id="name" name='password'>
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+
+
+              <br>
+              <div id="success"></div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="sendMessageButton">Login</button>
+              </div>
+            </form>
+
+      </div>
+    </div>
+
+
+
+
+{% endblock %}
